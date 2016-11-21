@@ -3,6 +3,7 @@ package com.server.xofome.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -11,6 +12,7 @@ import com.server.xofome.model.Pedido;
 
 public interface IPedidoRepository extends JpaRepository<Pedido, Integer> {
 	
+	@Modifying
 	@Query("UPDATE Pedido SET status=:statusParam WHERE idPedido=:pedidoId")
 	public void setStatus(@Param("pedidoId") int id, @Param("statusParam") String status);
 

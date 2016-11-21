@@ -9,6 +9,6 @@ import com.server.xofome.model.Produto;
 
 public interface IItempedidoRepository extends JpaRepository<ItemPedido, Integer>{
 	
-	@Query("SELECT p FROM Produto p, ItemPedido it WHERE it.idProduto=: produtoId") 
+	@Query("SELECT p FROM Produto p, ItemPedido it WHERE it.produto=:produtoId") 
 	public Produto findProduct( @Param("produtoId") int idProduto);
 }

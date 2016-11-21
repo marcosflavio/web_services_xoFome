@@ -20,7 +20,7 @@ public class Pedido {
 	@GeneratedValue
 	private int idPedido;
 	
-	@OneToMany(mappedBy = "idPedido")
+	@OneToMany(mappedBy = "pedido")
 	private List<ItemPedido> itensPedido;
 	
 	@JsonProperty(value = "status")

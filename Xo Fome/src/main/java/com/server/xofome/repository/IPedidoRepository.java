@@ -9,10 +9,10 @@ import com.server.xofome.model.Pedido;
 
 public interface IPedidoRepository extends JpaRepository<Pedido, Integer> {
 	
-	@Query("UPDATE Pedido SET status:=statusParam WHERE Pedido.idPedido =:pedidoId")
+	@Query("UPDATE Pedido SET status=:statusParam WHERE idPedido=:pedidoId")
 	public void setStatus(@Param("pedidoId") int id, @Param("statusParam") String status);
 
-	@Query("SELECT p.status FROM Pedido p WHERE p.idPedido =:pedidoId")
+	@Query("SELECT p.status FROM Pedido p WHERE p.idPedido=:pedidoId")
 	public String getStatus(@Param("pedidoId") int id);
 
 	@Query("SELECT p.endereco FROM Pedido p")

@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -19,6 +20,7 @@ public class Pedido {
 	@GeneratedValue
 	private int idPedido;
 	
+	@OneToMany(mappedBy = "idPedido")
 	private List<ItemPedido> itensPedido;
 	
 	@JsonProperty(value = "status")

@@ -1,18 +1,41 @@
 package com.server.xofome.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@Entity
+@Table(name = "item_pedido")
 public class ItemPedido {
 
+	@Id
+	@GeneratedValue
 	private int idItemPedido;
-	private int idPedido;
-	private int idProduto;
+	
+	private Pedido pedido;
+	
+	private Produto produto;
+	
+	@JsonProperty(value = "nomeProduto")
+	@Column(name = "nome_produto")
 	private String nomeProduto;
+	
+	@JsonProperty(value = "quantidade")
+	@Column(name = "quantidade")
 	private int quantidade;
+	
+	@JsonProperty(value = "valor")
+	@Column(name = "valor")
 	private double valor;
 
-	public ItemPedido(int idItemPedido, int idPedido, int idProduto, String nomeProduto, int quantidade, double valor) {
+	public ItemPedido(int idItemPedido, Pedido pedido, Produto produto, String nomeProduto, int quantidade, double valor) {
 		this.idItemPedido = idItemPedido;
-		this.idPedido = idPedido;
-		this.idProduto = idProduto;
+		this.pedido = pedido;
+		this.produto = produto;
 		this.nomeProduto = nomeProduto;
 		this.quantidade = quantidade;
 		this.valor = valor;
@@ -34,22 +57,6 @@ public class ItemPedido {
 		this.idItemPedido = idItemPedido;
 	}
 
-	public int getIdPedido() {
-		return idPedido;
-	}
-
-	public void setIdPedido(int idPedido) {
-		this.idPedido = idPedido;
-	}
-
-	public int getIdProduto() {
-		return idProduto;
-	}
-
-	public void setIdProduto(int idProduto) {
-		this.idProduto = idProduto;
-	}
-
 	public String getNomeProduto() {
 		return nomeProduto;
 	}
@@ -66,35 +73,19 @@ public class ItemPedido {
 		this.quantidade = quantidade;
 	}
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o)
-			return true;
-		if (o == null || getClass() != o.getClass())
-			return false;
-
-		ItemPedido that = (ItemPedido) o;
-
-		if (getIdItemPedido() != that.getIdItemPedido())
-			return false;
-		if (getIdPedido() != that.getIdPedido())
-			return false;
-		if (getIdProduto() != that.getIdProduto())
-			return false;
-		if (getQuantidade() != that.getQuantidade())
-			return false;
-		return getNomeProduto().equals(that.getNomeProduto());
-
+	public Pedido getPedido() {
+		return pedido;
 	}
 
-	@Override
-	public int hashCode() {
-		int result = getIdItemPedido();
-		result = 31 * result + getIdPedido();
-		result = 31 * result + getIdProduto();
-		result = 31 * result + getNomeProduto().hashCode();
-		result = 31 * result + getQuantidade();
-		return result;
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
 	}
 
+	public Produto getProduto() {
+		return produto;
+	}
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
 }

@@ -32,7 +32,6 @@ public class Produto {
 	@Column(name = "tipo")
     private int tipo;
 
-	
     public Produto(String nome, Float preco, String descricao, int tipo) {
     	super();
         this.nomeProduto = nome;

@@ -9,8 +9,7 @@ import org.springframework.data.repository.query.Param;
 import com.server.xofome.model.Produto;
 
 public interface IProdutoRepository extends JpaRepository<Produto, Integer> {
-	
-	//Consulta JPQL pra retornar produtos de um dado tipo (comida ou bebida)
-		@Query("SELECT p FROM Produto p WHERE p.tipo = ?") 
-		public List<Produto> findByTipo(@Param("tipo") int tipo);	
+	// Consulta JPQL pra retornar produtos de um dado tipo (comida ou bebida)
+	@Query("SELECT p FROM Produto p WHERE p.tipo = ?")
+	public List<Produto> findByTipo(@Param("tipo") int tipo);
 }

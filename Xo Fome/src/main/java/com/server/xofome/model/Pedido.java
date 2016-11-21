@@ -3,13 +3,38 @@ package com.server.xofome.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pedido {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@Entity
+@Table(name = "pedido")
+public class Pedido {
+	
+	@Id
+	@GeneratedValue
 	private int idPedido;
+	
 	private List<ItemPedido> itensPedido;
+	
+	@JsonProperty(value = "status")
+	@Column(name = "status")
 	private String status = "Inativo";
+	
+	@JsonProperty(value = "valorTotalPedido")
+	@Column(name = "valor_total_pedido")
 	private double valorTotalPedido;
+
+	@JsonProperty(value = "endereco")
+	@Column(name = "endereco")
 	private String endereco;
+	
+	@JsonProperty(value = "valorASerPago")
+	@Column(name = "valor_a_ser_pago")
 	private double valorASerPago;
 
 	public Pedido() {

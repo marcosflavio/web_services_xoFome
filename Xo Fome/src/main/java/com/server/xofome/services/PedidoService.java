@@ -1,0 +1,65 @@
+package com.server.xofome.services;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.server.xofome.model.Pedido;
+import com.server.xofome.repository.IPedidoRepository;
+
+@Transactional
+@Service
+public class PedidoService implements IPedidoService {
+
+	@Autowired
+	private IPedidoRepository repository;
+	
+	@Override
+	public List<Pedido> findAll() {
+		return repository.findAll();
+	}
+
+	@Override
+	public Pedido findOne(int id) {
+		return repository.findOne(id);
+	}
+
+	@Override
+	public Pedido save(Pedido pedido) {
+		return repository.save(pedido);
+	}
+
+	@Override
+	public Pedido update(Pedido pedido) {
+		return repository.save(pedido);
+	}
+
+	@Override
+	public void delete(int id) {
+		repository.delete(id);
+	}
+
+	@Override
+	public void setStatus(int id, String status) {
+		repository.setStatus(id, status);
+	}
+
+	@Override
+	public String getStatus(int id) {
+		return repository.getStatus(id);
+	}
+
+	@Override
+	public List<String> getEnderecos() {
+		return repository.getEnderecos();
+	}
+
+	@Override
+	public String getEndereco(int id) {
+		return repository.getEndereco(id);
+	}
+
+}

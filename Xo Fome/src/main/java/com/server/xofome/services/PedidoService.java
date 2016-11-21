@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.server.xofome.model.ItemPedido;
 import com.server.xofome.model.Pedido;
 import com.server.xofome.repository.IPedidoRepository;
 
@@ -61,5 +62,10 @@ public class PedidoService implements IPedidoService {
 	public String getEndereco(int id) {
 		return repository.getEndereco(id);
 	}
-
+	
+	@Override
+	public List<ItemPedido> getItens ( int id ){
+		
+		return repository.getItens( id );
+	}
 }

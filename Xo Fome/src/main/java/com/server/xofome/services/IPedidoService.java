@@ -2,6 +2,7 @@ package com.server.xofome.services;
 
 import java.util.List;
 
+import com.server.xofome.model.ItemPedido;
 import com.server.xofome.model.Pedido;
 
 public interface IPedidoService {
@@ -23,4 +24,6 @@ public interface IPedidoService {
 	public List<String> getEnderecos();
 	
 	public String getEndereco( int id );
+	
+	public List<ItemPedido> getItens ( int id );
 }

@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+
+import com.server.xofome.model.ItemPedido;
 import com.server.xofome.model.Pedido;
 
 public interface IPedidoRepository extends JpaRepository<Pedido, Integer> {
@@ -20,4 +22,7 @@ public interface IPedidoRepository extends JpaRepository<Pedido, Integer> {
 
 	@Query("SELECT p.endereco FROM Pedido p WHERE p.idPedido=:pedidoId")
 	public String getEndereco(@Param("pedidoId") int id);
+	
+	@Query("SELECT p.itensPedido FROM Pedido p WHERE p.idPedido=:pedidoId")
+	public List <ItemPedido> getItens( @Param("pedidoId") int id );
 }

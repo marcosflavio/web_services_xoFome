@@ -46,6 +46,5 @@ public class ProdutoService implements IProdutoService{
 	public List<Produto>findByTipo(int tipo){
 		return produtoRepository.findByTipo(tipo);
 	}
-	
-	
+		
 }

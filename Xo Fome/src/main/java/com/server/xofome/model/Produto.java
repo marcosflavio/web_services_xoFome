@@ -4,7 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -27,6 +29,13 @@ public class Produto {
 	@JsonProperty(value = "descricao")
 	@Column(name = "descricao")
     private String descricao;
+	
+	@Transient
+	private String imageEncode;
+	
+	@Column(name = "imagem")
+	@Lob
+	private byte[] imagem;
 	
 	@JsonProperty(value = "tipo")
 	@Column(name = "tipo")
@@ -83,6 +92,22 @@ public class Produto {
     public void setTipo(int tipo) {
         this.tipo = tipo;
     }
+
+	public String getImageEncode() {
+		return imageEncode;
+	}
+
+	public void setImageEncode(String imageEncode) {
+		this.imageEncode = imageEncode;
+	}
+
+	public byte[] getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(byte[] imagem) {
+		this.imagem = imagem;
+	}
 	
 	
 

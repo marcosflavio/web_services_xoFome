@@ -7,6 +7,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -22,6 +24,10 @@ public class Pedido {
 	
 	@OneToMany(mappedBy = "pedido")
 	private List<ItemPedido> itensPedido;
+	
+	@ManyToOne
+	@JoinColumn(name = "email")
+	private Usuario Usuario;
 	
 	@JsonProperty(value = "status")
 	@Column(name = "status")
@@ -39,6 +45,8 @@ public class Pedido {
 	@Column(name = "valor_a_ser_pago")
 	private double valorASerPago;
 
+	
+	
 	public Pedido() {
 		this.itensPedido = new ArrayList<ItemPedido>();
 		idPedido++;
@@ -97,6 +105,14 @@ public class Pedido {
 
 	public void setValorTotalPedido(double valorTotalPedido) {
 		this.valorTotalPedido = valorTotalPedido;
+	}
+
+	public Usuario getUsuario() {
+		return Usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		Usuario = usuario;
 	}
 
 	@Override

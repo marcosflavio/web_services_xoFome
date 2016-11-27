@@ -3,7 +3,6 @@ package com.server.xofome.services;
 import java.util.List;
 
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,6 +44,16 @@ public class ProdutoService implements IProdutoService{
 	@Override
 	public List<Produto>findByTipo(int tipo){
 		return produtoRepository.findByTipo(tipo);
+	}
+	
+	@Override
+	public Long getCount(){
+		return produtoRepository.getCount();
+	}
+	
+	@Override
+	public List<Produto> findAllUpdate(int qtde){
+		return produtoRepository.findUpdateQTDE(qtde);
 	}
 		
 }

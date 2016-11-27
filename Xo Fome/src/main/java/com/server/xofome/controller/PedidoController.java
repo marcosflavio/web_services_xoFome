@@ -35,7 +35,8 @@ public class PedidoController {
 		Pedido pedido = service.findOne(id);
 		return new ResponseEntity<Pedido>(pedido, HttpStatus.OK);
 	}
-
+	
+	
 	// public Pedido save( Pedido pedido );
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Pedido> save(@RequestBody Pedido requestBuy) {

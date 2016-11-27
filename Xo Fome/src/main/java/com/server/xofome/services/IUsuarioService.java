@@ -5,4 +5,5 @@ import com.server.xofome.model.Usuario;
 public interface IUsuarioService {
 	
 	public Usuario save(Usuario usuario);
+	
 }

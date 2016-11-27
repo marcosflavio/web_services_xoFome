@@ -17,4 +17,8 @@ public interface IProdutoService {
 	public void delete(int id);
 	
 	public List<Produto>findByTipo(int tipo);
+	
+	public Long getCount();
+	
+	public List<Produto> findAllUpdate( int qtde);
 }

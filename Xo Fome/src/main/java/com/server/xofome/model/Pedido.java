@@ -27,7 +27,7 @@ public class Pedido {
 	
 	@ManyToOne
 	@JoinColumn(name = "email")
-	private Usuario Usuario;
+	private Usuario usuario;
 	
 	@JsonProperty(value = "status")
 	@Column(name = "status")
@@ -108,11 +108,11 @@ public class Pedido {
 	}
 
 	public Usuario getUsuario() {
-		return Usuario;
+		return usuario;
 	}
 
 	public void setUsuario(Usuario usuario) {
-		Usuario = usuario;
+		this.usuario = usuario;
 	}
 
 	@Override

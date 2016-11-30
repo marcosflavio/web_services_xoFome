@@ -27,10 +27,16 @@ public class ItemPedidoService implements IItemPedidoService {
 	public ItemPedido findOne(int id) {
 		return repository.findOne(id);
 	}
-
+	
 	@Override
 	public ItemPedido save(ItemPedido itemPedido) {
+		
+		ItemPedido pedido = findOne(itemPedido.getIdItemPedido());
+		if( pedido != null){
+			return itemPedido;
+		}
 		return repository.save(itemPedido);
+		
 	}
 
 	@Override

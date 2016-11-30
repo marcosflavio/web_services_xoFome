@@ -1,7 +1,5 @@
 package com.server.xofome.model;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,11 +20,11 @@ public class Pedido {
 	@GeneratedValue
 	private int idPedido;
 	
-	@OneToMany(mappedBy = "pedido")
-	private List<ItemPedido> itensPedido;
+	//@OneToMany(mappedBy = "pedido")
+	//s@OneToMany
+	//private List<ItemPedido> itensPedido;
 	
-	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade = {CascadeType.MERGE})
 	@JoinColumn(name = "email")
 	private Usuario usuario;
 	
@@ -47,20 +44,18 @@ public class Pedido {
 	@Column(name = "valor_a_ser_pago")
 	private double valorASerPago;
 
-	
-	
 	public Pedido() {
-		this.itensPedido = new ArrayList<ItemPedido>();
+		//this.itensPedido = new ArrayList<ItemPedido>();
 		idPedido++;
 	}
 
-	public List<ItemPedido> getItensPedido() {
-		return itensPedido;
-	}
-
-	public void setItensPedido(List<ItemPedido> itensPedido) {
-		this.itensPedido = itensPedido;
-	}
+//	public List<ItemPedido> getItensPedido() {
+//		return itensPedido;
+//	}
+//
+//	public void setItensPedido(List<ItemPedido> itensPedido) {
+//		this.itensPedido = itensPedido;
+//	}
 
 	public double getValorASerPago() {
 		return valorASerPago;
@@ -96,12 +91,12 @@ public class Pedido {
 
 	public double getValorTotalPedido() {
 
-		double valorTotal = 0;
-
-		for (ItemPedido i : itensPedido) {
-			valorTotal += i.getValor();
-		}
-		valorTotalPedido = valorTotal;
+//		double valorTotal = 0;
+//
+//		for (ItemPedido i : itensPedido) {
+//			valorTotal += i.getValor();
+//		}
+//		valorTotalPedido = valorTotal;
 		return valorTotalPedido;
 	}
 

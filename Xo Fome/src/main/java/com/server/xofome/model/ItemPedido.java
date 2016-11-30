@@ -23,7 +23,7 @@ public class ItemPedido {
 	@GeneratedValue
 	private int idItemPedido;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "idPedido")
 	private Pedido pedido;
 	

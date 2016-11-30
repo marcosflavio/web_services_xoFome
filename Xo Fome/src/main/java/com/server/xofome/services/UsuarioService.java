@@ -4,7 +4,6 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.server.xofome.model.Usuario;
 import com.server.xofome.repository.IUsuarioRepository;
 
@@ -15,10 +14,12 @@ public class UsuarioService implements IUsuarioService{
 	@Autowired
 	private IUsuarioRepository repository;
 	
-	
 	@Override
 	public Usuario save(Usuario usuario) {
+		Usuario usuarioo = repository.findOne(usuario.getEmail());
+		
+		if( usuarioo != null)
+			return usuarioo;	
 		return repository.save(usuario);
 	}
-
 }

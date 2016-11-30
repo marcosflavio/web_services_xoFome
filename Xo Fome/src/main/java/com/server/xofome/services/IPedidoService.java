@@ -1,9 +1,9 @@
 package com.server.xofome.services;
 
 import java.util.List;
-
 import com.server.xofome.model.ItemPedido;
 import com.server.xofome.model.Pedido;
+import com.server.xofome.model.Usuario;
 
 public interface IPedidoService {
 
@@ -26,4 +26,6 @@ public interface IPedidoService {
 	public String getEndereco( int id );
 	
 	public List<ItemPedido> getItens ( int id );
+	
+	public Pedido findPedidoByUserAndStatus( String email, String status);
 }

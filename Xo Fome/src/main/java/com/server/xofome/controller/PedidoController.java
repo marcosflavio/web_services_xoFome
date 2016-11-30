@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.server.xofome.model.ItemPedido;
 import com.server.xofome.model.Pedido;
+import com.server.xofome.model.Usuario;
 import com.server.xofome.services.IPedidoService;
 
 @RestController
@@ -35,8 +36,7 @@ public class PedidoController {
 		Pedido pedido = service.findOne(id);
 		return new ResponseEntity<Pedido>(pedido, HttpStatus.OK);
 	}
-	
-	
+
 	// public Pedido save( Pedido pedido );
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Pedido> save(@RequestBody Pedido requestBuy) {
@@ -92,5 +92,12 @@ public class PedidoController {
 	public ResponseEntity<List<ItemPedido>> getItens(@PathVariable(value = "id") int id) {
 		List<ItemPedido> itens = service.getItens(id);
 		return new ResponseEntity<List<ItemPedido>>(itens, HttpStatus.OK);
+	}
+
+	//public Pedido findPedidoByUserAndStatus( @Param("usuario") Usuario usuario,@Param("status") String status);
+	@RequestMapping(value = "/{email}/{status}", method = RequestMethod.GET)
+	public ResponseEntity<Pedido> findPedidoByUserAndStatus (@PathVariable(value = "email") String email, @PathVariable(value = "status") String status) {
+		Pedido pedido = service.findPedidoByUserAndStatus(email, status);
+		return new ResponseEntity<Pedido>(pedido, HttpStatus.OK);
 	}
 }

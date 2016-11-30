@@ -1,5 +1,6 @@
 package com.server.xofome.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,12 +15,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Entity
 @Table(name = "item_pedido")
 public class ItemPedido {
-
+	
+	public ItemPedido() {
+	}
+	
 	@Id
 	@GeneratedValue
 	private int idItemPedido;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "idPedido")
 	private Pedido pedido;
 	

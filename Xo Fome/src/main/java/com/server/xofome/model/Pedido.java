@@ -3,6 +3,7 @@ package com.server.xofome.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +26,8 @@ public class Pedido {
 	@OneToMany(mappedBy = "pedido")
 	private List<ItemPedido> itensPedido;
 	
-	@ManyToOne
+	
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "email")
 	private Usuario usuario;
 	

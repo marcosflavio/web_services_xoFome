@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.server.xofome.model.ItemPedido;
 import com.server.xofome.model.Pedido;
+import com.server.xofome.model.Usuario;
 import com.server.xofome.repository.IPedidoRepository;
 
 @Transactional
@@ -67,5 +68,11 @@ public class PedidoService implements IPedidoService {
 	public List<ItemPedido> getItens ( int id ){
 		
 		return repository.getItens( id );
+	}
+	
+	@Override
+	public Pedido findPedidoByUserAndStatus( String email, String status){
+		
+		return repository.findPedidoByUsuarioAndStatus(email, status);
 	}
 }

@@ -29,4 +29,8 @@ public interface IPedidoRepository extends JpaRepository<Pedido, Integer> {
 	
 	@Query("SELECT p FROM Pedido p WHERE p.usuario.email=:emailP AND p.status=:statusP")
 	public Pedido findPedidoByUsuarioAndStatus( @Param("emailP") String email, @Param("statusP") String status);
+	
+	@Query("SELECT p FROM Pedido p WHERE p.usuario.email=:emailP")
+	public List<Pedido> findPedidoByUsuario( @Param("emailP") String email);
+	
 }

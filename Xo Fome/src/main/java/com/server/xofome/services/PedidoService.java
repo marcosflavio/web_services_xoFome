@@ -82,4 +82,9 @@ public class PedidoService implements IPedidoService {
 		
 		return repository.findPedidoByUsuarioAndStatus(email, status);
 	}
+	
+	@Override
+	public List<Pedido> findPedidoByUsuario( String email){
+		return repository.findPedidoByUsuario(email);
+	}
 }

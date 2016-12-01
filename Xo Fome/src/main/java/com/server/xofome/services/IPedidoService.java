@@ -1,6 +1,7 @@
 package com.server.xofome.services;
 
 import java.util.List;
+
 import com.server.xofome.model.ItemPedido;
 import com.server.xofome.model.Pedido;
 
@@ -27,4 +28,6 @@ public interface IPedidoService {
 	public List<ItemPedido> getItens ( int id );
 	
 	public Pedido findPedidoByUserAndStatus( String email, String status);
+	
+	public List<Pedido> findPedidoByUsuario( String email);
 }

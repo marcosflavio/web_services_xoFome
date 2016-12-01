@@ -101,4 +101,10 @@ public class PedidoController {
 		Pedido pedido = service.findPedidoByUserAndStatus(email, status);
 		return new ResponseEntity<Pedido>(pedido, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/findPedido/{email}", method = RequestMethod.GET)
+	public ResponseEntity<List<Pedido>> findPedidoByUsuario (@PathVariable(value = "email") String email) {
+		List<Pedido> pedidos = service.findPedidoByUsuario(email);
+		return new ResponseEntity<List<Pedido>>(pedidos, HttpStatus.OK);
+	}
 }

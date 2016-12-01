@@ -90,6 +90,7 @@ public class PedidoController {
 	// public List<ItemPedido> getItens ( int id );
 	@RequestMapping(value = "/itensp/{id}", method = RequestMethod.GET)
 	public ResponseEntity<List<ItemPedido>> getItens(@PathVariable(value = "id") int id) {
+		
 		List<ItemPedido> itens = service.getItens(id);
 		return new ResponseEntity<List<ItemPedido>>(itens, HttpStatus.OK);
 	}

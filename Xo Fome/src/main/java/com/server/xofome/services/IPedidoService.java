@@ -3,7 +3,6 @@ package com.server.xofome.services;
 import java.util.List;
 import com.server.xofome.model.ItemPedido;
 import com.server.xofome.model.Pedido;
-import com.server.xofome.model.Usuario;
 
 public interface IPedidoService {
 

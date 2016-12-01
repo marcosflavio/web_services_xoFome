@@ -16,6 +16,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Table(name = "pedido")
 public class Pedido {
 	
+	@Override
+	public String toString() {
+		return "Pedido [idPedido=" + idPedido + ", usuario=" + usuario + ", status=" + status + ", valorTotalPedido="
+				+ valorTotalPedido + ", endereco=" + endereco + ", valorASerPago=" + valorASerPago + "]";
+	}
+
 	@Id
 	@GeneratedValue
 	private int idPedido;

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.server.xofome.model.ItemPedido;
 import com.server.xofome.model.Pedido;
-import com.server.xofome.model.Usuario;
 import com.server.xofome.repository.IPedidoRepository;
 
 @Transactional
@@ -31,6 +30,12 @@ public class PedidoService implements IPedidoService {
 
 	@Override
 	public Pedido save(Pedido pedido) {
+		
+		Pedido pedidoo = repository.findOne(pedido.getIdPedido());
+		
+		if(pedidoo != null)
+			return pedidoo;
+		
 		return repository.save(pedido);
 	}
 

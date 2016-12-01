@@ -38,6 +38,8 @@ public class ItemPedidoController {
 	// public ItemPedido save(ItemPedido itemPedido);
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<ItemPedido> save(@RequestBody ItemPedido requestBuy) {
+		System.out.println(requestBuy.toString());
+		
 		ItemPedido item = service.save(requestBuy);
 		return new ResponseEntity<ItemPedido>(item, HttpStatus.OK);
 	}

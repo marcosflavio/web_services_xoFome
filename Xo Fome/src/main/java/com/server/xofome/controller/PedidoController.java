@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.server.xofome.model.ItemPedido;
 import com.server.xofome.model.Pedido;
-import com.server.xofome.model.Usuario;
 import com.server.xofome.services.IPedidoService;
 
 @RestController

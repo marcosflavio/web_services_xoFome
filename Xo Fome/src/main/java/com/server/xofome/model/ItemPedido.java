@@ -99,4 +99,12 @@ public class ItemPedido {
 	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
+
+	@Override
+	public String toString() {
+		return "ItemPedido [idItemPedido=" + idItemPedido + ", pedido=" + pedido + ", produto=" + produto
+				+ ", nomeProduto=" + nomeProduto + ", quantidade=" + quantidade + ", valor=" + valor + "]";
+	}
+	
+	
 }

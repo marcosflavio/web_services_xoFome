@@ -5,6 +5,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -23,7 +24,7 @@ public class Pedido {
 	}
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idPedido;
 	
 	//@OneToMany(mappedBy = "pedido")
@@ -51,8 +52,7 @@ public class Pedido {
 	private double valorASerPago;
 
 	public Pedido() {
-		//this.itensPedido = new ArrayList<ItemPedido>();
-		idPedido++;
+		//idPedido++;
 	}
 
 //	public List<ItemPedido> getItensPedido() {

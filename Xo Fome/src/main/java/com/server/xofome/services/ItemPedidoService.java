@@ -39,13 +39,9 @@ public class ItemPedidoService implements IItemPedidoService {
 		Pedido pedido1 = itemPedido.getPedido();
 		
 		pedido1 = repositoryPedido.findOne(pedido1.getIdPedido());
-		
+		pedido1.setStatus("Recebido");
 		itemPedido.setPedido(pedido1);
 		
-//		ItemPedido pedido = findOne(itemPedido.getIdItemPedido());
-//		if( pedido != null){
-//			return itemPedido;
-//		}
 		return repository.save(itemPedido);
 		
 	}

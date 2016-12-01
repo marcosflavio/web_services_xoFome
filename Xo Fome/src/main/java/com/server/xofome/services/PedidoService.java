@@ -33,9 +33,11 @@ public class PedidoService implements IPedidoService {
 		
 		Pedido pedidoo = repository.findOne(pedido.getIdPedido());
 		
-		if(pedidoo != null)
+		if(pedidoo != null){
+			
 			return pedidoo;
-		
+		}
+			
 		return repository.save(pedido);
 	}
 

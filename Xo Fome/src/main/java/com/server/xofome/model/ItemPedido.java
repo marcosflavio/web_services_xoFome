@@ -4,6 +4,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,17 +18,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ItemPedido {
 	
 	public ItemPedido() {
+		
 	}
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idItemPedido;
 	
 	@ManyToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "idPedido")
 	private Pedido pedido;
 	
-	@OneToOne(optional = false)
+	@OneToOne(optional = true)
 	@JoinColumn(name = "idProduto")
 	private Produto produto;
 	
@@ -43,14 +45,6 @@ public class ItemPedido {
 	@Column(name = "valor")
 	private double valor;
 
-	public ItemPedido(int idItemPedido, Pedido pedido, Produto produto, String nomeProduto, int quantidade, double valor) {
-		this.idItemPedido = idItemPedido;
-		this.pedido = pedido;
-		this.produto = produto;
-		this.nomeProduto = nomeProduto;
-		this.quantidade = quantidade;
-		this.valor = valor;
-	}
 
 	public double getValor() {
 		return valor;

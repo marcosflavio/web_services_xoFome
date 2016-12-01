@@ -59,7 +59,7 @@ public class PedidoController {
 	}
 
 	// public void setStatus( int id, String status );
-	@RequestMapping(value = "/status/{id}/{status}", method = RequestMethod.POST)
+	@RequestMapping(value = "/status/{id}/{status}", method = RequestMethod.GET)
 	public ResponseEntity<Void> setStatus(@PathVariable(value = "id") int id,
 			@PathVariable(value = "status") String status) {
 		service.setStatus(id, status);

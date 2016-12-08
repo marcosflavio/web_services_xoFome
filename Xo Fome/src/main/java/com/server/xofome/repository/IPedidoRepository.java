@@ -18,12 +18,6 @@ public interface IPedidoRepository extends JpaRepository<Pedido, Integer> {
 	@Query("SELECT p.status FROM Pedido p WHERE p.idPedido=:pedidoId")
 	public String getStatus(@Param("pedidoId") int id);
 
-	@Query("SELECT p.endereco FROM Pedido p")
-	public List<String> getEnderecos();
-
-	@Query("SELECT p.endereco FROM Pedido p WHERE p.idPedido=:pedidoId")
-	public String getEndereco(@Param("pedidoId") int id);
-	
 	@Query("SELECT item FROM ItemPedido item WHERE item.pedido.idPedido=:pedidoId")
 	public List <ItemPedido> getItens( @Param("pedidoId") int id );
 	

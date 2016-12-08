@@ -60,16 +60,6 @@ public class PedidoService implements IPedidoService {
 	public String getStatus(int id) {
 		return repository.getStatus(id);
 	}
-
-	@Override
-	public List<String> getEnderecos() {
-		return repository.getEnderecos();
-	}
-
-	@Override
-	public String getEndereco(int id) {
-		return repository.getEndereco(id);
-	}
 	
 	@Override
 	public List<ItemPedido> getItens ( int id ){

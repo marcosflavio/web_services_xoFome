@@ -21,10 +21,6 @@ public interface IPedidoService {
 	
 	public String getStatus( int id);
 	
-	public List<String> getEnderecos();
-	
-	public String getEndereco( int id );
-	
 	public List<ItemPedido> getItens ( int id );
 	
 	public Pedido findPedidoByUserAndStatus( String email, String status);

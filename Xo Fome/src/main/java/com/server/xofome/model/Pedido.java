@@ -20,16 +20,12 @@ public class Pedido {
 	@Override
 	public String toString() {
 		return "Pedido [idPedido=" + idPedido + ", usuario=" + usuario + ", status=" + status + ", valorTotalPedido="
-				+ valorTotalPedido + ", endereco=" + endereco + ", valorASerPago=" + valorASerPago + "]";
+				+ valorTotalPedido + ", valorASerPago=" + valorASerPago + "]";
 	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idPedido;
-	
-	//@OneToMany(mappedBy = "pedido")
-	//s@OneToMany
-	//private List<ItemPedido> itensPedido;
 	
 	@ManyToOne(cascade = {CascadeType.MERGE})
 	@JoinColumn(name = "email")
@@ -43,9 +39,13 @@ public class Pedido {
 	@Column(name = "valor_total_pedido")
 	private double valorTotalPedido;
 
-	@JsonProperty(value = "endereco")
-	@Column(name = "endereco")
-	private String endereco;
+	@JsonProperty(value = "longitude")
+	@Column(name = "longitude")
+	private String longitude;
+
+	@JsonProperty(value = "latitude")
+	@Column(name = "latitude")
+	private String latitude;
 	
 	@JsonProperty(value = "valorASerPago")
 	@Column(name = "valor_a_ser_pago")
@@ -71,14 +71,6 @@ public class Pedido {
 		this.valorASerPago = valorASerPago;
 	}
 
-	public String getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
-
 	public String getStatus() {
 		return status;
 	}
@@ -96,13 +88,6 @@ public class Pedido {
 	}
 
 	public double getValorTotalPedido() {
-
-//		double valorTotal = 0;
-//
-//		for (ItemPedido i : itensPedido) {
-//			valorTotal += i.getValor();
-//		}
-//		valorTotalPedido = valorTotal;
 		return valorTotalPedido;
 	}
 
@@ -116,6 +101,22 @@ public class Pedido {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public String getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
+
+	public String getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
 	}
 
 	@Override

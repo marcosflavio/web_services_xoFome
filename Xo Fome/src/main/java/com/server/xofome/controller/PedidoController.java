@@ -73,20 +73,6 @@ public class PedidoController {
 		return new ResponseEntity<String>(status, HttpStatus.OK);
 	}
 
-	// public List<String> getEnderecos();
-	@RequestMapping(value = "/end", method = RequestMethod.GET)
-	public ResponseEntity<List<String>> getEnderecos() {
-		List<String> enderecos = service.getEnderecos();
-		return new ResponseEntity<List<String>>(enderecos, HttpStatus.OK);
-	}
-
-	// public String getEndereco( int id );
-	@RequestMapping(value = "/end/{id}", method = RequestMethod.GET)
-	public ResponseEntity<String> getEndereco(@PathVariable(value = "id") int id) {
-		String endereco = service.getEndereco(id);
-		return new ResponseEntity<String>(endereco, HttpStatus.OK);
-	}
-
 	// public List<ItemPedido> getItens ( int id );
 	@RequestMapping(value = "/itensp/{id}", method = RequestMethod.GET)
 	public ResponseEntity<List<ItemPedido>> getItens(@PathVariable(value = "id") int id) {
